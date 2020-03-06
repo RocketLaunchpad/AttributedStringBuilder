@@ -80,6 +80,11 @@ public struct AttributedStringComponent {
         self.styles = styles
     }
 
+    public init(_ value: String, _ styles: [Style] = []) {
+        self.value = value
+        self.styles = styles
+    }
+
     private var traits: UIFontDescriptor.SymbolicTraits {
         var result = UIFontDescriptor.SymbolicTraits()
 
