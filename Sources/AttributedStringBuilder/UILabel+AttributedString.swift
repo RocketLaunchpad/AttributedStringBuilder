@@ -1,5 +1,5 @@
 //
-//  AttributedStringBuilder.swift
+//  UILabel+AttributedString.swift
 //  AttributedStringBuilder
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -23,16 +23,11 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
-@_functionBuilder
-public struct AttributedStringBuilder {
+public extension UILabel {
 
-    public static func buildBlock(_ component: AttributedStringComponent) -> [AttributedStringComponent] {
-        return [component]
-    }
-
-    public static func buildBlock(_ components: AttributedStringComponent...) -> [AttributedStringComponent] {
-        return components
+    func render(_ attributedString: AttributedString) {
+        attributedText = attributedString.render(font: font)
     }
 }

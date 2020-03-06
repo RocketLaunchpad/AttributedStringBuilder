@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C51B2DE12411F19300E0B0EE /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE02411F19300E0B0EE /* AttributedString.swift */; };
+		C51B2DE32411F19B00E0B0EE /* AttributedStringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE22411F19B00E0B0EE /* AttributedStringComponent.swift */; };
+		C51B2DE52411F1E600E0B0EE /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE42411F1E600E0B0EE /* Components.swift */; };
+		C51B2DE72411F5FF00E0B0EE /* UILabel+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE62411F5FF00E0B0EE /* UILabel+AttributedString.swift */; };
+		C51B2DE92411F6CE00E0B0EE /* AttributedStringBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A633322F71EB900A0F7BA /* AttributedStringBuilder.framework */; };
+		C51B2DEA2411F6CE00E0B0EE /* AttributedStringBuilder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C52A633322F71EB900A0F7BA /* AttributedStringBuilder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C52A633D22F71EB900A0F7BA /* AttributedStringBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A633322F71EB900A0F7BA /* AttributedStringBuilder.framework */; };
 		C52A634222F71EB900A0F7BA /* AttributedStringBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52A634122F71EB900A0F7BA /* AttributedStringBuilderTests.swift */; };
 		C52A634422F71EB900A0F7BA /* AttributedStringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = C52A633622F71EB900A0F7BA /* AttributedStringBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,6 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C51B2DEB2411F6CE00E0B0EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C52A632A22F71EB900A0F7BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C52A633222F71EB900A0F7BA;
+			remoteInfo = AttributedStringBuilder;
+		};
 		C52A633E22F71EB900A0F7BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C52A632A22F71EB900A0F7BA /* Project object */;
@@ -28,7 +41,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C51B2DED2411F6CF00E0B0EE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C51B2DEA2411F6CE00E0B0EE /* AttributedStringBuilder.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		C51B2DE02411F19300E0B0EE /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
+		C51B2DE22411F19B00E0B0EE /* AttributedStringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringComponent.swift; sourceTree = "<group>"; };
+		C51B2DE42411F1E600E0B0EE /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		C51B2DE62411F5FF00E0B0EE /* UILabel+AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AttributedString.swift"; sourceTree = "<group>"; };
 		C52A633322F71EB900A0F7BA /* AttributedStringBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AttributedStringBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52A633622F71EB900A0F7BA /* AttributedStringBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttributedStringBuilder.h; sourceTree = "<group>"; };
 		C52A633722F71EB900A0F7BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51B2DE92411F6CE00E0B0EE /* AttributedStringBuilder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +110,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C51B2DE82411F6CE00E0B0EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C52A632922F71EB900A0F7BA = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +125,7 @@
 				C52A636622F71F7E00A0F7BA /* Examples */,
 				C52A633422F71EB900A0F7BA /* Products */,
 				7739DC5A4037647795B2ADFA /* Pods */,
+				C51B2DE82411F6CE00E0B0EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,9 +142,13 @@
 		C52A633522F71EB900A0F7BA /* AttributedStringBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				C51B2DE02411F19300E0B0EE /* AttributedString.swift */,
 				C52A633622F71EB900A0F7BA /* AttributedStringBuilder.h */,
 				C52A636722F71FD200A0F7BA /* AttributedStringBuilder.swift */,
+				C51B2DE22411F19B00E0B0EE /* AttributedStringComponent.swift */,
+				C51B2DE42411F1E600E0B0EE /* Components.swift */,
 				C52A633722F71EB900A0F7BA /* Info.plist */,
+				C51B2DE62411F5FF00E0B0EE /* UILabel+AttributedString.swift */,
 			);
 			path = AttributedStringBuilder;
 			sourceTree = "<group>";
@@ -212,10 +256,12 @@
 				C52A635022F71F7800A0F7BA /* Sources */,
 				C52A635122F71F7800A0F7BA /* Frameworks */,
 				C52A635222F71F7800A0F7BA /* Resources */,
+				C51B2DED2411F6CF00E0B0EE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C51B2DEC2411F6CE00E0B0EE /* PBXTargetDependency */,
 			);
 			name = AttributedStringBuilderExample;
 			productName = AttributedStringBuilderExample;
@@ -296,7 +342,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51B2DE12411F19300E0B0EE /* AttributedString.swift in Sources */,
+				C51B2DE52411F1E600E0B0EE /* Components.swift in Sources */,
+				C51B2DE32411F19B00E0B0EE /* AttributedStringComponent.swift in Sources */,
 				C52A636822F71FD200A0F7BA /* AttributedStringBuilder.swift in Sources */,
+				C51B2DE72411F5FF00E0B0EE /* UILabel+AttributedString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +370,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C51B2DEC2411F6CE00E0B0EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C52A633222F71EB900A0F7BA /* AttributedStringBuilder */;
+			targetProxy = C51B2DEB2411F6CE00E0B0EE /* PBXContainerItemProxy */;
+		};
 		C52A633F22F71EB900A0F7BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C52A633222F71EB900A0F7BA /* AttributedStringBuilder */;

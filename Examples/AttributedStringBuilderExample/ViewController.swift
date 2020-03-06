@@ -26,13 +26,30 @@
 import AttributedStringBuilder
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     @IBOutlet var label: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = AttributedStringBuilder.text
+
+        label.render(AttributedString {
+            Plain("Plain")
+            Space()
+            Plain("Plain")
+            Newline(count: 2)
+            Underline("Underline")
+            Space()
+            Underline("Underline")
+            Newline(count: 2)
+            Italic("Italic")
+            Space()
+            Italic("Italic")
+            Newline(count: 2)
+            Bold("Bold")
+            Space()
+            Bold("Bold")
+        })
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  AttributedStringBuilder.swift
+//  AttributedString.swift
 //  AttributedStringBuilder
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -23,16 +23,27 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
-@_functionBuilder
-public struct AttributedStringBuilder {
+public class AttributedString {
 
-    public static func buildBlock(_ component: AttributedStringComponent) -> [AttributedStringComponent] {
-        return [component]
+    private let components: [AttributedStringComponent]
+
+    public init(@AttributedStringBuilder builder: () -> AttributedStringComponent) {
+        self.components = [builder()]
     }
 
-    public static func buildBlock(_ components: AttributedStringComponent...) -> [AttributedStringComponent] {
-        return components
+    public init(@AttributedStringBuilder builder: () -> [AttributedStringComponent]) {
+        self.components = builder()
+    }
+
+    public func render(font: UIFont) -> NSAttributedString {
+        let result = NSMutableAttributedString()
+
+        components.forEach {
+            result.append($0.render(font: font))
+        }
+
+        return result
     }
 }

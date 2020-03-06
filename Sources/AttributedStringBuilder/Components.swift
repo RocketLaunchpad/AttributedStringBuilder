@@ -1,5 +1,5 @@
 //
-//  AttributedStringBuilder.swift
+//  Components.swift
 //  AttributedStringBuilder
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -23,16 +23,37 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
-@_functionBuilder
-public struct AttributedStringBuilder {
+public typealias Attribute = (key: NSAttributedString.Key, value: Any)
 
-    public static func buildBlock(_ component: AttributedStringComponent) -> [AttributedStringComponent] {
-        return [component]
-    }
+public let UnderlineAttribute: Attribute = (key: .underlineStyle, value: NSUnderlineStyle.single.rawValue)
 
-    public static func buildBlock(_ components: AttributedStringComponent...) -> [AttributedStringComponent] {
-        return components
-    }
+public func ForegroundColorAttribute(color: UIColor) -> (NSAttributedString.Key, Any) {
+    return (.foregroundColor, color)
 }
+
+public func Plain(_ value: String) -> AttributedStringComponent {
+    return AttributedStringComponent(value)
+}
+
+public func Bold(_ value: String) -> AttributedStringComponent {
+    return AttributedStringComponent(value, traits: .traitBold)
+}
+
+public func Italic(_ value: String) -> AttributedStringComponent {
+    return AttributedStringComponent(value, traits: .traitItalic)
+}
+
+public func Underline(_ value: String) -> AttributedStringComponent {
+    return AttributedStringComponent(value, attributes: [UnderlineAttribute.key: UnderlineAttribute.value])
+}
+
+public func Space(count: Int = 1) -> AttributedStringComponent {
+    return Plain(String(repeating: " ", count: count))
+}
+
+public func Newline(count: Int = 1) -> AttributedStringComponent {
+    return Plain(String(repeating: "\n", count: count))
+}
+
