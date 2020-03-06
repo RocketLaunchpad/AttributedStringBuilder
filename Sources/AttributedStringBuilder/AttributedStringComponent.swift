@@ -25,25 +25,91 @@
 
 import UIKit
 
+public typealias AString = AttributedStringComponent
+
 public struct AttributedStringComponent {
+
+    public enum Style {
+
+        case bold
+
+        case italic
+
+        case underline
+
+        case foregroundColor(UIColor)
+
+        case backgroundColor(UIColor)
+
+        var traits: UIFontDescriptor.SymbolicTraits? {
+            switch self {
+            case .bold:
+                return .traitBold
+
+            case .italic:
+                return .traitItalic
+
+            default:
+                return nil
+            }
+        }
+
+        var attributeTuple: (NSAttributedString.Key, Any)? {
+            switch self {
+            case .underline:
+                return (.underlineStyle, NSUnderlineStyle.single.rawValue)
+
+            case .foregroundColor(let color):
+                return (.foregroundColor, color)
+
+            case .backgroundColor(let color):
+                return (.backgroundColor, color)
+
+            default:
+                return nil
+            }
+        }
+    }
 
     public var value: String
 
-    public var traits: UIFontDescriptor.SymbolicTraits
+    public var styles: [Style]
 
-    public var attributes: [NSAttributedString.Key: Any]
-
-    public init(_ value: String, traits: UIFontDescriptor.SymbolicTraits = [], attributes: [NSAttributedString.Key: Any] = [:]) {
+    public init(_ value: String, _ styles: Style...) {
         self.value = value
-        self.traits = traits
-        self.attributes = attributes
+        self.styles = styles
+    }
+
+    private var traits: UIFontDescriptor.SymbolicTraits {
+        var result = UIFontDescriptor.SymbolicTraits()
+
+        styles.compactMap {
+            $0.traits
+        }
+        .forEach {
+            result.insert($0)
+        }
+
+        return result
+    }
+
+    private func attributes(for font: UIFont) -> [NSAttributedString.Key: Any] {
+        var attrs: [NSAttributedString.Key: Any] = [
+            .font: font.with(traits: traits)
+        ]
+
+        styles.compactMap {
+            $0.attributeTuple
+        }
+        .forEach {
+            attrs[$0.0] = $0.1
+        }
+
+        return attrs
     }
 
     public func render(font: UIFont) -> NSAttributedString {
-        // build an attributes dictionary with the specified font updated with the traits passed to the initializer
-        // then overwrite that dictionary with anything in the attributes dictionary passed to the initializer
-        let attr = [.font: font.with(traits: traits)].merging(attributes, uniquingKeysWith: { $1 })
-        return NSAttributedString(string: value, attributes: attr)
+        return NSAttributedString(string: value, attributes: attributes(for: font))
     }
 }
 

@@ -23,37 +23,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import UIKit
-
-public typealias Attribute = (key: NSAttributedString.Key, value: Any)
-
-public let UnderlineAttribute: Attribute = (key: .underlineStyle, value: NSUnderlineStyle.single.rawValue)
-
-public func ForegroundColorAttribute(color: UIColor) -> (NSAttributedString.Key, Any) {
-    return (.foregroundColor, color)
-}
-
-public func Plain(_ value: String) -> AttributedStringComponent {
-    return AttributedStringComponent(value)
-}
-
-public func Bold(_ value: String) -> AttributedStringComponent {
-    return AttributedStringComponent(value, traits: .traitBold)
-}
-
-public func Italic(_ value: String) -> AttributedStringComponent {
-    return AttributedStringComponent(value, traits: .traitItalic)
-}
-
-public func Underline(_ value: String) -> AttributedStringComponent {
-    return AttributedStringComponent(value, attributes: [UnderlineAttribute.key: UnderlineAttribute.value])
-}
+import Foundation
 
 public func Space(count: Int = 1) -> AttributedStringComponent {
-    return Plain(String(repeating: " ", count: count))
+    return AString(String(repeating: " ", count: count))
 }
 
 public func Newline(count: Int = 1) -> AttributedStringComponent {
-    return Plain(String(repeating: "\n", count: count))
+    return AString(String(repeating: "\n", count: count))
 }
-

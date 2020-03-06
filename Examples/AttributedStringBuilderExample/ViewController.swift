@@ -34,21 +34,27 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
 
         label.render(AttributedString {
-            Plain("Plain")
+            AString("Plain")
             Space()
-            Plain("Plain")
+            AString("Underline", .underline)
+
             Newline(count: 2)
-            Underline("Underline")
+
+            AString("Italic", .italic)
             Space()
-            Underline("Underline")
+            AString("Bold", .bold)
+
             Newline(count: 2)
-            Italic("Italic")
-            Space()
-            Italic("Italic")
+
+            AString("Blue Bold Italic", .bold, .italic, .foregroundColor(.blue))
+
             Newline(count: 2)
-            Bold("Bold")
-            Space()
-            Bold("Bold")
+
+            AString("Red Underline", .underline, .foregroundColor(.red))
+
+            Newline(count: 2)
+
+            AString("Bold Highlighted", .bold, .foregroundColor(.black), .backgroundColor(.yellow))
         })
     }
 }
