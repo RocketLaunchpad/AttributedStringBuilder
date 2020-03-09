@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  AttributedStringBuilderExample
+//  AttributedStringComponent+Components.swift
+//  AttributedStringBuilder
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //
@@ -23,50 +23,27 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import AttributedStringBuilder
 import UIKit
 
-class ViewController: UITableViewController {
+extension AttributedStringComponent {
 
-    @IBOutlet var label: UILabel!
+    public var bold: AttributedStringComponent {
+        return adding(traits: .traitBold)
+    }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    public var italic: AttributedStringComponent {
+        return adding(traits: .traitItalic)
+    }
 
-        label.render(AttributedString {
-            "Plain".attributed
-            Space()
-            "Underline"
-                .underline
+    public var underline: AttributedStringComponent {
+        return adding(attribute: .underlineStyle, withValue: NSUnderlineStyle.single.rawValue)
+    }
 
-            Newline(count: 2)
+    public func foregroundColor(_ color: UIColor) -> AttributedStringComponent {
+        return adding(attribute: .foregroundColor, withValue: color)
+    }
 
-            "Italic"
-                .italic
-            Space()
-            "Bold"
-                .bold
-
-            Newline(count: 2)
-
-            "Blue Bold Italic"
-                .bold
-                .italic
-                .foregroundColor(.blue)
-
-            Newline(count: 2)
-
-            "Red Underline"
-                .underline
-                .foregroundColor(.red)
-
-            Newline(count: 2)
-
-            "Bold Highlighted"
-                .bold
-                .foregroundColor(.black)
-                .backgroundColor(.yellow)
-        })
+    public func backgroundColor(_ color: UIColor) -> AttributedStringComponent {
+        return adding(attribute: .backgroundColor, withValue: color)
     }
 }
-

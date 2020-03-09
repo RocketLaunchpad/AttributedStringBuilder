@@ -29,86 +29,37 @@ public typealias AString = AttributedStringComponent
 
 public struct AttributedStringComponent {
 
-    public enum Style {
-
-        case bold
-
-        case italic
-
-        case underline
-
-        case foregroundColor(UIColor)
-
-        case backgroundColor(UIColor)
-
-        var traits: UIFontDescriptor.SymbolicTraits? {
-            switch self {
-            case .bold:
-                return .traitBold
-
-            case .italic:
-                return .traitItalic
-
-            default:
-                return nil
-            }
-        }
-
-        var attributeTuple: (NSAttributedString.Key, Any)? {
-            switch self {
-            case .underline:
-                return (.underlineStyle, NSUnderlineStyle.single.rawValue)
-
-            case .foregroundColor(let color):
-                return (.foregroundColor, color)
-
-            case .backgroundColor(let color):
-                return (.backgroundColor, color)
-
-            default:
-                return nil
-            }
-        }
-    }
-
     public var value: String
 
-    public var styles: [Style]
+    public var traits: UIFontDescriptor.SymbolicTraits
 
-    public init(_ value: String, _ styles: Style...) {
+    public var attributes: [NSAttributedString.Key: Any]
+
+    public init(_ value: String, traits: UIFontDescriptor.SymbolicTraits = [], attributes: [NSAttributedString.Key: Any] = [:]) {
         self.value = value
-        self.styles = styles
+        self.traits = traits
+        self.attributes = attributes
     }
 
-    public init(_ value: String, _ styles: [Style] = []) {
-        self.value = value
-        self.styles = styles
+    public func adding(traits toAdd: UIFontDescriptor.SymbolicTraits) -> AttributedStringComponent {
+        var traits = self.traits
+        traits.insert(toAdd)
+
+        return AttributedStringComponent(value, traits: traits, attributes: attributes)
     }
 
-    private var traits: UIFontDescriptor.SymbolicTraits {
-        var result = UIFontDescriptor.SymbolicTraits()
+    public func adding(attribute key: NSAttributedString.Key, withValue value: Any) -> AttributedStringComponent {
+        var attributes = self.attributes
+        attributes[key] = value
 
-        styles.compactMap {
-            $0.traits
-        }
-        .forEach {
-            result.insert($0)
-        }
-
-        return result
+        return AttributedStringComponent(self.value, traits: traits, attributes: attributes)
     }
 
     private func attributes(for font: UIFont) -> [NSAttributedString.Key: Any] {
         var attrs: [NSAttributedString.Key: Any] = [
             .font: font.with(traits: traits)
         ]
-
-        styles.compactMap {
-            $0.attributeTuple
-        }
-        .forEach {
-            attrs[$0.0] = $0.1
-        }
+        attrs.merge(self.attributes, uniquingKeysWith: { $1 })
 
         return attrs
     }

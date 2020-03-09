@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C513A5372415DC6700F4527A /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513A5362415DC6700F4527A /* String+Components.swift */; };
+		C513A5392415DD9E00F4527A /* AttributedStringComponent+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513A5382415DD9E00F4527A /* AttributedStringComponent+Components.swift */; };
 		C51B2DE12411F19300E0B0EE /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE02411F19300E0B0EE /* AttributedString.swift */; };
 		C51B2DE32411F19B00E0B0EE /* AttributedStringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE22411F19B00E0B0EE /* AttributedStringComponent.swift */; };
 		C51B2DE72411F5FF00E0B0EE /* UILabel+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE62411F5FF00E0B0EE /* UILabel+AttributedString.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C513A5362415DC6700F4527A /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
+		C513A5382415DD9E00F4527A /* AttributedStringComponent+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedStringComponent+Components.swift"; sourceTree = "<group>"; };
 		C51B2DE02411F19300E0B0EE /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 		C51B2DE22411F19B00E0B0EE /* AttributedStringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringComponent.swift; sourceTree = "<group>"; };
 		C51B2DE62411F5FF00E0B0EE /* UILabel+AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AttributedString.swift"; sourceTree = "<group>"; };
@@ -130,8 +134,10 @@
 				C52A633622F71EB900A0F7BA /* AttributedStringBuilder.h */,
 				C52A636722F71FD200A0F7BA /* AttributedStringBuilder.swift */,
 				C51B2DE22411F19B00E0B0EE /* AttributedStringComponent.swift */,
+				C513A5382415DD9E00F4527A /* AttributedStringComponent+Components.swift */,
 				C5F8B3C22411FEC5008C8896 /* Components.swift */,
 				C52A633722F71EB900A0F7BA /* Info.plist */,
+				C513A5362415DC6700F4527A /* String+Components.swift */,
 				C51B2DE62411F5FF00E0B0EE /* UILabel+AttributedString.swift */,
 			);
 			path = AttributedStringBuilder;
@@ -326,7 +332,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C513A5372415DC6700F4527A /* String+Components.swift in Sources */,
 				C51B2DE12411F19300E0B0EE /* AttributedString.swift in Sources */,
+				C513A5392415DD9E00F4527A /* AttributedStringComponent+Components.swift in Sources */,
 				C51B2DE32411F19B00E0B0EE /* AttributedStringComponent.swift in Sources */,
 				C5F8B3C32411FEC5008C8896 /* Components.swift in Sources */,
 				C52A636822F71FD200A0F7BA /* AttributedStringBuilder.swift in Sources */,
