@@ -64,23 +64,33 @@ Lots of things going on here, and it's nowhere near what we want.
 import RIAttributedStringBuilder
 
 let attributedString = AttributedString {
-    AString("Location access is required", .bold)
+    "Location access is required"
+        .bold
+
     Newline(count: 2)
-    AString("Tap")
-    Space()
-    AString("Open Settings", .bold, .foregroundColor(.blue))
-    Space()
-    AString("below. Then select")
-    Space()
-    AString("Location", .bold, .foregroundColor(.blue))
-    AString(", then under")
-    Space()
-    AString("Allow Location Access", .italic)
-    Space()
-    AString("select")
-    Space()
-    AString("Always", .bold, .foregroundColor(.blue))
-    AString(".")
+
+    "Tap"
+    Space
+    "Open Settings"
+        .bold
+        .foregroundColor(.blue)
+    Space
+    "below. Then select"
+    Space
+    "Location"
+        .bold
+        .foregroundColor(.blue)
+    ", then under"
+    Space
+    "Allow Location Access"
+        .italic
+    Space
+    "select"
+    Space
+    "Always"
+        .bold
+        .foregroundColor(.blue)
+    "."
 }
 
 // Render with a fixed font and display in a UILabel
@@ -96,7 +106,15 @@ The `AttributedString` instance can be constructed in advance of the UI. It then
 
 ## Usage
 
-Call `AString()` to create an `AttributedStringComponent` value. `AString` takes a string and zero or more `Style` enum values, such as:
+`AttributedString` objects are created using the `AttributedString` function builder. In the simplest case, passing a `String` constant or variable constructs an `AttributedString` with just that value:
+
+```swift
+AttributedString {
+    "Hello"
+}
+```
+
+You can then add arbitrarily many format modifiers. Currently supported are:
 
 - `.bold`
 - `.italic`
@@ -108,40 +126,61 @@ So, to create an attributed string that looks like this: Plain *Italic* **Bold**
 
 ```swift
 AttributedString {
-    AString("Plain ")
-    AString("Italic ", .italic)
-    AString("Bold", .bold)
+    "Plain"
+    Space
+    "Italic".italic
+    Space
+    "Bold".bold
+    Newline(count: 2)
+    "Bold and Italic"
+        .bold
+        .italic
 }
 ```
 
-Rather than add a space at the end of the string contants passed to `AString`, you can use the `Space()` and `Newline()` functions. Both take an optional `count` argument allowing you to add multiple whitespace characters.
+The `Space` and `Newline` symbols used above save from having to add trailing whitespace characters in string constants. Other similar symbols are available:
+
+- `Space` adds a single space character
+- `Space(count: Int = 1)` adds multiple space characters
+- `Tab` adds a single tab character
+- `Tab(count: Int = 1)` adds multiple tab characters
+- `Newline` adds a single newline character
+- `Newline(count: Int = 1)` adds multiple newline characters.
 
 ## Example
 
 ```swift
 // Returns an AttributedString instance:
 let attributedString = AttributedString {
-    AString("Plain")
-    Space()
-    AString("Underline", .underline)
+    "Plain"
+    Space
+    "Underline".underline
 
     Newline(count: 2)
 
-    AString("Italic", .italic)
-    Space()
-    AString("Bold", .bold)
+    "Italic".italic
+    Space
+    "Bold".bold
 
     Newline(count: 2)
 
-    AString("Blue Bold Italic", .bold, .italic, .foregroundColor(.blue))
+    "Blue Bold Italic"
+        .bold
+        .italic
+        .foregroundColor(.blue)
 
     Newline(count: 2)
 
-    AString("Red Underline", .underline, .foregroundColor(.red))
+    "Red Underline"
+        .underline
+        .foregroundColor(.red)
 
     Newline(count: 2)
 
-    AString("Bold Highlighted", .bold, .foregroundColor(.black), .backgroundColor(.yellow))
+    "Bold Highlighted"
+        .bold
+        .foregroundColor(.black)
+        .backgroundColor(.yellow)
 }
 
 // The AttributedString instance can be rendered into an NSAttributedString:

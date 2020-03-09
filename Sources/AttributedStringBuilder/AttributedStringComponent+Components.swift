@@ -54,6 +54,12 @@ public func Space(count: Int = 1) -> AttributedStringComponent {
     return String(repeating: " ", count: count)
 }
 
+public let Tab = "\t"
+
+public func Tab(count: Int = 1) -> AttributedStringComponent {
+    return String(repeating: "\t", count: count)
+}
+
 public let Newline = "\n"
 
 public func Newline(count: Int = 1) -> AttributedStringComponent {
