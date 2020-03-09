@@ -34,18 +34,15 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
 
         label.render(AttributedString {
-            "Plain".attributed
-            Space()
-            "Underline"
-                .underline
+            "Plain"
+            Space
+            "Underline".underline
 
             Newline(count: 2)
 
-            "Italic"
-                .italic
-            Space()
-            "Bold"
-                .bold
+            "Italic".italic
+            Space
+            "Bold".bold
 
             Newline(count: 2)
 
@@ -69,4 +66,3 @@ class ViewController: UITableViewController {
         })
     }
 }
-

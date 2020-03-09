@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C513A5372415DC6700F4527A /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513A5362415DC6700F4527A /* String+Components.swift */; };
 		C513A5392415DD9E00F4527A /* AttributedStringComponent+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513A5382415DD9E00F4527A /* AttributedStringComponent+Components.swift */; };
+		C513A53B2415E29600F4527A /* String+AttributedStringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513A53A2415E29600F4527A /* String+AttributedStringComponent.swift */; };
+		C513A53D2415E2B700F4527A /* UIFont+Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513A53C2415E2B700F4527A /* UIFont+Traits.swift */; };
+		C513A53F2415E2CF00F4527A /* DefaultAttributedStringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513A53E2415E2CF00F4527A /* DefaultAttributedStringComponent.swift */; };
 		C51B2DE12411F19300E0B0EE /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE02411F19300E0B0EE /* AttributedString.swift */; };
 		C51B2DE32411F19B00E0B0EE /* AttributedStringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE22411F19B00E0B0EE /* AttributedStringComponent.swift */; };
 		C51B2DE72411F5FF00E0B0EE /* UILabel+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51B2DE62411F5FF00E0B0EE /* UILabel+AttributedString.swift */; };
@@ -23,7 +25,6 @@
 		C52A635E22F71F7900A0F7BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52A635D22F71F7900A0F7BA /* Assets.xcassets */; };
 		C52A636122F71F7900A0F7BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52A635F22F71F7900A0F7BA /* LaunchScreen.storyboard */; };
 		C52A636822F71FD200A0F7BA /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52A636722F71FD200A0F7BA /* AttributedStringBuilder.swift */; };
-		C5F8B3C32411FEC5008C8896 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8B3C22411FEC5008C8896 /* Components.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +59,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C513A5362415DC6700F4527A /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
 		C513A5382415DD9E00F4527A /* AttributedStringComponent+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedStringComponent+Components.swift"; sourceTree = "<group>"; };
+		C513A53A2415E29600F4527A /* String+AttributedStringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AttributedStringComponent.swift"; sourceTree = "<group>"; };
+		C513A53C2415E2B700F4527A /* UIFont+Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Traits.swift"; sourceTree = "<group>"; };
+		C513A53E2415E2CF00F4527A /* DefaultAttributedStringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAttributedStringComponent.swift; sourceTree = "<group>"; };
 		C51B2DE02411F19300E0B0EE /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 		C51B2DE22411F19B00E0B0EE /* AttributedStringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringComponent.swift; sourceTree = "<group>"; };
 		C51B2DE62411F5FF00E0B0EE /* UILabel+AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AttributedString.swift"; sourceTree = "<group>"; };
@@ -77,7 +80,6 @@
 		C52A636022F71F7900A0F7BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C52A636222F71F7900A0F7BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52A636722F71FD200A0F7BA /* AttributedStringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilder.swift; sourceTree = "<group>"; };
-		C5F8B3C22411FEC5008C8896 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +137,10 @@
 				C52A636722F71FD200A0F7BA /* AttributedStringBuilder.swift */,
 				C51B2DE22411F19B00E0B0EE /* AttributedStringComponent.swift */,
 				C513A5382415DD9E00F4527A /* AttributedStringComponent+Components.swift */,
-				C5F8B3C22411FEC5008C8896 /* Components.swift */,
+				C513A53E2415E2CF00F4527A /* DefaultAttributedStringComponent.swift */,
 				C52A633722F71EB900A0F7BA /* Info.plist */,
-				C513A5362415DC6700F4527A /* String+Components.swift */,
+				C513A53A2415E29600F4527A /* String+AttributedStringComponent.swift */,
+				C513A53C2415E2B700F4527A /* UIFont+Traits.swift */,
 				C51B2DE62411F5FF00E0B0EE /* UILabel+AttributedString.swift */,
 			);
 			path = AttributedStringBuilder;
@@ -332,13 +335,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C513A5372415DC6700F4527A /* String+Components.swift in Sources */,
 				C51B2DE12411F19300E0B0EE /* AttributedString.swift in Sources */,
+				C513A53B2415E29600F4527A /* String+AttributedStringComponent.swift in Sources */,
 				C513A5392415DD9E00F4527A /* AttributedStringComponent+Components.swift in Sources */,
 				C51B2DE32411F19B00E0B0EE /* AttributedStringComponent.swift in Sources */,
-				C5F8B3C32411FEC5008C8896 /* Components.swift in Sources */,
+				C513A53D2415E2B700F4527A /* UIFont+Traits.swift in Sources */,
 				C52A636822F71FD200A0F7BA /* AttributedStringBuilder.swift in Sources */,
 				C51B2DE72411F5FF00E0B0EE /* UILabel+AttributedString.swift in Sources */,
+				C513A53F2415E2CF00F4527A /* DefaultAttributedStringComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

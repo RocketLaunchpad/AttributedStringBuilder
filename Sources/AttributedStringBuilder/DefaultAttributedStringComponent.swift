@@ -1,5 +1,5 @@
 //
-//  String+Components.swift
+//  DefaultAttributedStringComponent.swift
 //  AttributedStringBuilder
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -25,29 +25,17 @@
 
 import UIKit
 
-public extension String {
+public struct DefaultAttributedStringComponent: AttributedStringComponent {
 
-    var attributed: AttributedStringComponent {
-        return AttributedStringComponent(self)
-    }
+    public var value: String
 
-    var bold: AttributedStringComponent {
-        return attributed.bold
-    }
+    public var traits: UIFontDescriptor.SymbolicTraits
 
-    var italic: AttributedStringComponent {
-        return attributed.italic
-    }
+    public var attributes: [NSAttributedString.Key: Any]
 
-    var underline: AttributedStringComponent {
-        return attributed.underline
-    }
-
-    func foregroundColor(_ color: UIColor) -> AttributedStringComponent {
-        return attributed.foregroundColor(color)
-    }
-
-    func backgroundColor(_ color: UIColor) -> AttributedStringComponent {
-        return attributed.backgroundColor(color)
+    public init(_ value: String, traits: UIFontDescriptor.SymbolicTraits = [], attributes: [NSAttributedString.Key: Any] = [:]) {
+        self.value = value
+        self.traits = traits
+        self.attributes = attributes
     }
 }

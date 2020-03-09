@@ -1,5 +1,5 @@
 //
-//  Components.swift
+//  UIFont+Traits.swift
 //  AttributedStringBuilder
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -23,12 +23,15 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
-public func Space(count: Int = 1) -> AttributedStringComponent {
-    return AString(String(repeating: " ", count: count))
-}
+extension UIFont {
 
-public func Newline(count: Int = 1) -> AttributedStringComponent {
-    return AString(String(repeating: "\n", count: count))
+    public func with(traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
+        // If we can't get a descriptor with the specified traits, fall back to self
+        guard let descriptor = fontDescriptor.withSymbolicTraits(traits) else {
+            return self
+        }
+        return UIFont(descriptor: descriptor, size: 0)
+    }
 }

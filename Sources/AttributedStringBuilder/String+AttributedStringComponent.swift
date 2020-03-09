@@ -1,5 +1,5 @@
 //
-//  AttributedStringComponent+Components.swift
+//  String+AttributedStringComponent.swift
 //  AttributedStringBuilder
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
@@ -25,37 +25,17 @@
 
 import UIKit
 
-extension AttributedStringComponent {
+extension String: AttributedStringComponent {
 
-    public var bold: AttributedStringComponent {
-        return adding(traits: .traitBold)
+    public var value: String {
+        return self
     }
 
-    public var italic: AttributedStringComponent {
-        return adding(traits: .traitItalic)
+    public var traits: UIFontDescriptor.SymbolicTraits {
+        return []
     }
 
-    public var underline: AttributedStringComponent {
-        return adding(attribute: .underlineStyle, withValue: NSUnderlineStyle.single.rawValue)
+    public var attributes: [NSAttributedString.Key: Any] {
+        return [:]
     }
-
-    public func foregroundColor(_ color: UIColor) -> AttributedStringComponent {
-        return adding(attribute: .foregroundColor, withValue: color)
-    }
-
-    public func backgroundColor(_ color: UIColor) -> AttributedStringComponent {
-        return adding(attribute: .backgroundColor, withValue: color)
-    }
-}
-
-public let Space = " "
-
-public func Space(count: Int = 1) -> AttributedStringComponent {
-    return String(repeating: " ", count: count)
-}
-
-public let Newline = "\n"
-
-public func Newline(count: Int = 1) -> AttributedStringComponent {
-    return String(repeating: "\n", count: count)
 }

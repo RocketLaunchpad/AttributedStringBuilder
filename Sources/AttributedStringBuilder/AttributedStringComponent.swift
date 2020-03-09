@@ -25,37 +25,32 @@
 
 import UIKit
 
-public typealias AString = AttributedStringComponent
+public protocol AttributedStringComponent {
 
-public struct AttributedStringComponent {
+    var value: String { get }
 
-    public var value: String
+    var traits: UIFontDescriptor.SymbolicTraits { get }
 
-    public var traits: UIFontDescriptor.SymbolicTraits
+    var attributes: [NSAttributedString.Key: Any] { get }
+}
 
-    public var attributes: [NSAttributedString.Key: Any]
-
-    public init(_ value: String, traits: UIFontDescriptor.SymbolicTraits = [], attributes: [NSAttributedString.Key: Any] = [:]) {
-        self.value = value
-        self.traits = traits
-        self.attributes = attributes
-    }
+extension AttributedStringComponent {
 
     public func adding(traits toAdd: UIFontDescriptor.SymbolicTraits) -> AttributedStringComponent {
         var traits = self.traits
         traits.insert(toAdd)
 
-        return AttributedStringComponent(value, traits: traits, attributes: attributes)
+        return DefaultAttributedStringComponent(value, traits: traits, attributes: attributes)
     }
 
     public func adding(attribute key: NSAttributedString.Key, withValue value: Any) -> AttributedStringComponent {
         var attributes = self.attributes
         attributes[key] = value
 
-        return AttributedStringComponent(self.value, traits: traits, attributes: attributes)
+        return DefaultAttributedStringComponent(self.value, traits: traits, attributes: attributes)
     }
 
-    private func attributes(for font: UIFont) -> [NSAttributedString.Key: Any] {
+    public func attributes(for font: UIFont) -> [NSAttributedString.Key: Any] {
         var attrs: [NSAttributedString.Key: Any] = [
             .font: font.with(traits: traits)
         ]
@@ -66,16 +61,5 @@ public struct AttributedStringComponent {
 
     public func render(font: UIFont) -> NSAttributedString {
         return NSAttributedString(string: value, attributes: attributes(for: font))
-    }
-}
-
-fileprivate extension UIFont {
-
-    func with(traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
-        // If we can't get a descriptor with the specified traits, fall back to self
-        guard let descriptor = fontDescriptor.withSymbolicTraits(traits) else {
-            return self
-        }
-        return UIFont(descriptor: descriptor, size: 0)
     }
 }
