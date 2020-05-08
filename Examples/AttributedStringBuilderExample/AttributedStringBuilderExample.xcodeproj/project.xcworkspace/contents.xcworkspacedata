@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AttributedStringBuilder.xcodeproj">
+      location = "self:AttributedStringBuilderExample.xcodeproj">
    </FileRef>
 </Workspace>

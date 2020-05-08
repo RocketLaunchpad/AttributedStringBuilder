@@ -61,7 +61,7 @@ Lots of things going on here, and it's nowhere near what we want.
 #### Using `AttributedStringBuilder`
 
 ```swift
-import RIAttributedStringBuilder
+import AttributedStringBuilder
 
 let attributedString = AttributedString {
     "Location access is required"
@@ -202,8 +202,9 @@ Rendered in dark mode:
 
 ## Installation Instructions
 
-Add to your `Podfile`:
+Add the following to the dependencies in your `Package.swift` file:
 
+```swift
+.package(url: "https://github.com/RocketLaunchpad/AttributedStringBuilder.git" from: "1.0.0")
 ```
-pod 'RIAttributedStringBuilder', :git => 'https://github.com/RocketLaunchpad/RIAttributedStringBuilder.git', :branch => 'master'
-```
+

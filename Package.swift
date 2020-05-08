@@ -33,14 +33,10 @@ let package = Package(
             name: "AttributedStringBuilder",
             targets: ["AttributedStringBuilder"]),
     ],
-    dependencies: [
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "AttributedStringBuilder",
             dependencies: []),
-        .testTarget(
-            name: "AttributedStringBuilderTests",
-            dependencies: ["AttributedStringBuilder"]),
     ]
 )
