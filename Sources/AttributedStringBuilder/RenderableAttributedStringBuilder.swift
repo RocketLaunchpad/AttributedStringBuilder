@@ -25,8 +25,8 @@
 
 import Foundation
 
-@_functionBuilder
-public struct AttributedStringBuilder {
+@resultBuilder
+public struct RenderableAttributedStringBuilder {
 
     public static func buildBlock(_ component: AttributedStringComponent) -> [AttributedStringComponent] {
         return [component]

@@ -150,8 +150,8 @@ The `Space` and `Newline` symbols used above save from having to add trailing wh
 ## Example
 
 ```swift
-// Returns an AttributedString instance:
-let attributedString = AttributedString {
+// Returns an RenderableAttributedString instance:
+let renderable = RenderableAttributedString {
     "Plain"
     Space
     "Underline".underline
@@ -184,11 +184,11 @@ let attributedString = AttributedString {
 }
 
 // The AttributedString instance can be rendered into an NSAttributedString:
-let rendered = attributedString.render(font: .systemFont(ofSize: 17))
+let rendered = renderable.render(font: .systemFont(ofSize: 17))
 
 // Or it can be passed directly to a UILabel:
 let label = UILabel(frame: .zero)
-label.render(attributedString)
+label.render(renderable)
 label.sizeToFit()
 ```
 

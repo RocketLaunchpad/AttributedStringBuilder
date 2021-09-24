@@ -25,15 +25,15 @@
 
 import UIKit
 
-public class AttributedString {
+public class RenderableAttributedString {
 
     private let components: [AttributedStringComponent]
 
-    public init(@AttributedStringBuilder builder: () -> AttributedStringComponent) {
+    public init(@RenderableAttributedStringBuilder builder: () -> AttributedStringComponent) {
         self.components = [builder()]
     }
 
-    public init(@AttributedStringBuilder builder: () -> [AttributedStringComponent]) {
+    public init(@RenderableAttributedStringBuilder builder: () -> [AttributedStringComponent]) {
         self.components = builder()
     }
 

@@ -27,7 +27,7 @@ import UIKit
 
 public extension UILabel {
 
-    func render(_ attributedString: AttributedString) {
+    func render(_ attributedString: RenderableAttributedString) {
         attributedText = attributedString.render(font: font)
     }
 }

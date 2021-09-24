@@ -33,7 +33,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        label.render(AttributedString {
+        label.render(RenderableAttributedString {
             "Plain"
             Space
             "Underline".underline
